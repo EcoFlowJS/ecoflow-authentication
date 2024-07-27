@@ -1,0 +1,37 @@
+{
+  "name": "ecoflow-authentication",
+  "version": "0.0.1",
+  "main": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --build",
+    "watch": "tsc --watch"
+  },
+  "keywords": [
+    "EcoFlow",
+    "EcoFlowModule"
+  ],
+  "ecoModule": {
+    "signJWTController": "./dist/controllers/signJWTController.js",
+    "jwtJWKSController": "./dist/controllers/jwtJWKSController.js",
+    "authenticateTokenController": "./dist/controllers/authenticateTokenController.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@ecoflow/types": "^0.0.26",
+    "@types/fs-extra": "^11.0.4",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/pem-jwk": "^2.0.2",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "fs-extra": "^11.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "jwks-rsa": "^3.1.0",
+    "pem-jwk": "^2.0.0"
+  }
+}
