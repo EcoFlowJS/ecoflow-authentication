@@ -18,9 +18,9 @@
     "jwtJWKSController": "./dist/controllers/jwtJWKSController.js",
     "authenticateTokenController": "./dist/controllers/authenticateTokenController.js"
   },
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "author": "EcoFlowJS",
+  "license": "MIT",
+  "description": "Authentication package for EcoFlowJS",
   "devDependencies": {
     "@ecoflow/types": "^0.0.26",
     "@types/fs-extra": "^11.0.4",
@@ -33,5 +33,13 @@
     "jsonwebtoken": "^9.0.2",
     "jwks-rsa": "^3.1.0",
     "pem-jwk": "^2.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EcoFlowJS/ecoflow-authentication.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EcoFlowJS/ecoflow-authentication/issues"
+  },
+  "homepage": "https://github.com/EcoFlowJS/ecoflow-authentication#readme"
 }
