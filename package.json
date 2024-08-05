@@ -16,7 +16,9 @@
   "ecoModule": {
     "signJWTController": "./dist/controllers/signJWTController.js",
     "jwtJWKSController": "./dist/controllers/jwtJWKSController.js",
-    "authenticateTokenController": "./dist/controllers/authenticateTokenController.js"
+    "authenticateTokenController": "./dist/controllers/authenticateTokenController.js",
+    "generateGoogleAuthUrl": "./dist/controllers/generateGoogleAuthUrl.js",
+    "googleOAuthAuthenticate": "./dist/controllers/googleOAuthAuthenticate.js"
   },
   "author": "EcoFlowJS",
   "license": "MIT",
@@ -30,6 +32,7 @@
   },
   "dependencies": {
     "fs-extra": "^11.2.0",
+    "googleapis": "^140.0.1",
     "jsonwebtoken": "^9.0.2",
     "jwks-rsa": "^3.1.0",
     "pem-jwk": "^2.0.0"

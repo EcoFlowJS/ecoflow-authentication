@@ -370,6 +370,132 @@ const functionManifest: () => ModuleManifest = () => ({
        */
       controller: "authenticateTokenController",
     },
+
+    {
+      name: "Generate Google Auth URL",
+      type: "Middleware",
+      inputs: [
+        {
+          name: "clientId",
+          label: "Client ID",
+          type: "String",
+          required: true,
+          hint: 'For environment variables provide EcoFlow prefix. example:"ECOFLOW_USER_"',
+        },
+        {
+          name: "clientIdFromEnv",
+          label: "Client ID from Environment",
+          type: "Checkbox",
+          hint: "Use environment variable for client ID",
+        },
+        {
+          name: "clientSecret",
+          label: "Client Secret",
+          type: "String",
+          required: true,
+          hint: 'For environment variables provide EcoFlow prefix. example:"ECOFLOW_USER_"',
+        },
+        {
+          name: "clientSecretFromEnv",
+          label: "Client Secret from Environment",
+          type: "Checkbox",
+          hint: "Use environment variable for client secret",
+        },
+        {
+          name: "redirectUri",
+          label: "Redirect URI",
+          type: "String",
+          required: true,
+          hint: 'For environment variables provide EcoFlow prefix. example:"ECOFLOW_USER_"',
+        },
+        {
+          name: "redirectUriFromEnv",
+          label: "Redirect URI from Environment",
+          type: "Checkbox",
+          hint: "Use environment variable for redirect URI",
+        },
+        {
+          name: "access_type",
+          label: "Auth URL Access Type",
+          type: "SelectPicker",
+          pickerOptions: ["online", "offline"],
+          required: true,
+          defaultValue: "online",
+        },
+        {
+          name: "prompt",
+          label: "Auth URL Prompt",
+          type: "SelectPicker",
+          pickerOptions: ["select_account", "consent", "none"],
+          required: true,
+          defaultValue: "consent",
+        },
+        {
+          name: "scope",
+          label: "Scopes",
+          type: "ListBox",
+        },
+        {
+          name: "state",
+          label: "State",
+          type: "String",
+          hint: "An optional state parameter to maintain state between the request and the callback",
+        },
+        {
+          name: "login_hint",
+          label: "Login Hint",
+          type: "String",
+          hint: "An optional login hint to pre-fill the email field in the consent screen",
+        },
+      ],
+      controller: "generateGoogleAuthUrl",
+    },
+    {
+      name: "Google Authenticate",
+      type: "Middleware",
+      inputs: [
+        {
+          name: "clientId",
+          label: "Client ID",
+          type: "String",
+          required: true,
+          hint: 'For environment variables provide EcoFlow prefix. example:"ECOFLOW_USER_"',
+        },
+        {
+          name: "clientIdFromEnv",
+          label: "Client ID from Environment",
+          type: "Checkbox",
+          hint: "Use environment variable for client ID",
+        },
+        {
+          name: "clientSecret",
+          label: "Client Secret",
+          type: "String",
+          required: true,
+          hint: 'For environment variables provide EcoFlow prefix. example:"ECOFLOW_USER_"',
+        },
+        {
+          name: "clientSecretFromEnv",
+          label: "Client Secret from Environment",
+          type: "Checkbox",
+          hint: "Use environment variable for client secret",
+        },
+        {
+          name: "redirectUri",
+          label: "Redirect URI",
+          type: "String",
+          required: true,
+          hint: 'For environment variables provide EcoFlow prefix. example:"ECOFLOW_USER_"',
+        },
+        {
+          name: "redirectUriFromEnv",
+          label: "Redirect URI from Environment",
+          type: "Checkbox",
+          hint: "Use environment variable for redirect URI",
+        },
+      ],
+      controller: "googleOAuthAuthenticate",
+    },
   ],
 });
 
