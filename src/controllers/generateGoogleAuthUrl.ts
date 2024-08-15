@@ -1,14 +1,19 @@
 import { EcoContext } from "@ecoflow/types";
 import { Auth } from "googleapis";
 
-async function generateGoogleAuthUrl(this: EcoContext) {
+/**
+ * Generates a Google OAuth URL based on the provided context.
+ * @param {EcoContext} ctx - The context object containing necessary information.
+ * @returns None
+ */
+async function generateGoogleAuthUrl(ctx: EcoContext) {
   const { _ } = ecoFlow;
 
   /**
    * Destructures the properties 'payload', 'inputs', and 'next' from the current object.
    * @returns None
    */
-  const { payload, inputs, next } = this;
+  const { payload, inputs, next } = ctx;
 
   /**
    * Checks if the inputs variable is undefined and returns early if it is.

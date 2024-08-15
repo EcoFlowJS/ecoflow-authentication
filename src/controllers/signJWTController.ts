@@ -7,7 +7,7 @@ import fetchSecretORprivateKey from "../helpers/fetchSecretORprivateKey";
  * @this {EcoContext} - The context in which the function is executed.
  * @returns None
  */
-async function functionController(this: EcoContext) {
+async function functionController(ctx: EcoContext) {
   const { _ } = ecoFlow;
 
   /**
@@ -15,7 +15,7 @@ async function functionController(this: EcoContext) {
    * the payload variable.
    * @returns None
    */
-  const { payload, inputs, next } = this;
+  const { payload, inputs, next } = ctx;
 
   /**
    * Checks if the inputs variable is undefined and returns early if true.

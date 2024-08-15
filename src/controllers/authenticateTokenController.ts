@@ -6,7 +6,7 @@ import fetchJWKPublicKey from "../helpers/fetchJWKPublicKey";
  * Controls the execution of a function within the EcoContext.
  * @returns None
  */
-async function functionController(this: EcoContext) {
+async function functionController(ctx: EcoContext) {
   const { _ } = ecoFlow;
 
   /**
@@ -14,7 +14,7 @@ async function functionController(this: EcoContext) {
    * the payload variable.
    * @returns None
    */
-  const { payload, inputs, next, request } = this;
+  const { payload, inputs, next, request } = ctx;
 
   /**
    * Checks if the inputs variable is undefined and returns early if it is.
@@ -49,7 +49,7 @@ async function functionController(this: EcoContext) {
     _.isEmpty(request.headers.authorization)
   ) {
     payload[responseKey] = "Invalid authorization";
-    this.status = 401;
+    ctx.status = 401;
     return;
   }
 
@@ -69,7 +69,7 @@ async function functionController(this: EcoContext) {
    */
   if (_.isEmpty(rawToken) || !_.isString(rawToken)) {
     payload[responseKey] = "Invalid authorization";
-    this.status = 401;
+    ctx.status = 401;
     return;
   }
 
@@ -140,7 +140,7 @@ async function functionController(this: EcoContext) {
      * @returns None
      */
     payload[responseKey] = error.message;
-    this.status = 401;
+    ctx.status = 401;
     return;
   }
 }

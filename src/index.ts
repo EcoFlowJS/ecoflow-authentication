@@ -371,10 +371,52 @@ const functionManifest: () => ModuleManifest = () => ({
       controller: "authenticateTokenController",
     },
 
+    /**
+     * Represents a middleware configuration for generating a Google Auth URL.
+     * @type {Object}
+     * @property {string} name - The name of the middleware ("Generate Google Auth URL").
+     * @property {string} type - The type of middleware ("Middleware").
+     * @property {Array} inputs - An array of input objects containing configuration details.
+     * @property {string} inputs[].name - The name of the input field.
+     * @property {string} inputs[].label - The label for the input field.
+     * @property {string} inputs[].type - The type of input field.
+     * @property {boolean} inputs[].required - Indicates if the input is required.
+     * @property {string} inputs[].hint - Additional information or
+     */
     {
+      /**
+       * Returns the Google authentication URL for the given parameters.
+       * @param {string} name - The name of the function or action.
+       * @returns The Google authentication URL.
+       */
       name: "Generate Google Auth URL",
+
+      /**
+       * Represents the type of a component as "Middleware".
+       */
       type: "Middleware",
+
+      /**
+       * An array of input objects with details for OAuth configuration.
+       * @type {Array<Object>}
+       * @property {string} name - The name of the input field.
+       * @property {string} label - The label for the input field.
+       * @property {string} type - The type of input field (String, Checkbox, SelectPicker, ListBox).
+       * @property {boolean} required - Indicates if the input field is required.
+       * @property {string} hint - Additional information or instructions for the input field.
+       * @property {Array<string>} pickerOptions - Options for SelectPicker type input fields.
+       * @property {string} defaultValue - The default value for the input field.
+       */
       inputs: [
+        /**
+         * Represents a client ID field with its name, label, type, and other properties.
+         * @type {Object}
+         * @property {string} name - The name of the field ("clientId").
+         * @property {string} label - The label of the field ("Client ID").
+         * @property {string} type - The type of the field ("String").
+         * @property {boolean} required - Indicates if the field is required (true).
+         * @property {string} hint - Additional information or hint for the field.
+         */
         {
           name: "clientId",
           label: "Client ID",
@@ -382,12 +424,31 @@ const functionManifest: () => ModuleManifest = () => ({
           required: true,
           hint: 'For environment variables provide EcoFlow prefix. example:"ECOFLOW_USER_"',
         },
+
+        /**
+         * Represents a configuration option for using the client ID from the environment.
+         * @type {Object}
+         * @property {string} name - The name of the configuration option ("clientIdFromEnv").
+         * @property {string} label - The label displayed for the option ("Client ID from Environment").
+         * @property {string} type - The type of input field for the option ("Checkbox").
+         * @property {string} hint - A hint or description for the option ("Use environment variable for client ID").
+         */
         {
           name: "clientIdFromEnv",
           label: "Client ID from Environment",
           type: "Checkbox",
           hint: "Use environment variable for client ID",
         },
+
+        /**
+         * Represents a configuration object for a client secret field.
+         * @type {Object}
+         * @property {string} name - The name of the field ("clientSecret").
+         * @property {string} label - The label displayed for the field ("Client Secret").
+         * @property {string} type - The type of the field ("String").
+         * @property {boolean} required - Indicates if the field is required (true).
+         * @property {string} hint - Additional information or instructions for the field.
+         */
         {
           name: "clientSecret",
           label: "Client Secret",
@@ -395,12 +456,31 @@ const functionManifest: () => ModuleManifest = () => ({
           required: true,
           hint: 'For environment variables provide EcoFlow prefix. example:"ECOFLOW_USER_"',
         },
+
+        /**
+         * Represents a configuration option for using the client secret from the environment.
+         * @type {Object}
+         * @property {string} name - The name of the configuration option ("clientSecretFromEnv").
+         * @property {string} label - The label displayed for the configuration option ("Client Secret from Environment").
+         * @property {string} type - The type of input field for the configuration option ("Checkbox").
+         * @property {string} hint - A hint or description for the configuration option ("Use environment variable for client secret").
+         */
         {
           name: "clientSecretFromEnv",
           label: "Client Secret from Environment",
           type: "Checkbox",
           hint: "Use environment variable for client secret",
         },
+
+        /**
+         * Represents a configuration object for a specific field.
+         * @type {Object}
+         * @property {string} name - The name of the field.
+         * @property {string} label - The label to display for the field.
+         * @property {string} type - The type of the field.
+         * @property {boolean} required - Indicates if the field is required.
+         * @property {string} hint - Additional information or hint for the field.
+         */
         {
           name: "redirectUri",
           label: "Redirect URI",
@@ -408,12 +488,32 @@ const functionManifest: () => ModuleManifest = () => ({
           required: true,
           hint: 'For environment variables provide EcoFlow prefix. example:"ECOFLOW_USER_"',
         },
+
+        /**
+         * Represents a configuration object for a checkbox input field with the label "Redirect URI from Environment".
+         * @type {Object}
+         * @property {string} name - The name of the field, "redirectUriFromEnv".
+         * @property {string} label - The label displayed for the field, "Redirect URI from Environment".
+         * @property {string} type - The type of the input field, "Checkbox".
+         * @property {string} hint - Additional hint text for the field, "Use environment variable for redirect URI".
+         */
         {
           name: "redirectUriFromEnv",
           label: "Redirect URI from Environment",
           type: "Checkbox",
           hint: "Use environment variable for redirect URI",
         },
+
+        /**
+         * Represents a configuration object for an "Auth URL Access Type" field.
+         * @type {Object}
+         * @property {string} name - The name of the field ("access_type").
+         * @property {string} label - The label displayed for the field ("Auth URL Access Type").
+         * @property {string} type - The type of input field ("SelectPicker").
+         * @property {string[]} pickerOptions - The options available in the select picker (["online", "offline"]).
+         * @property {boolean} required - Indicates if the field is required (true).
+         * @property {string} defaultValue - The default value for the field ("online").
+         */
         {
           name: "access_type",
           label: "Auth URL Access Type",
@@ -422,6 +522,17 @@ const functionManifest: () => ModuleManifest = () => ({
           required: true,
           defaultValue: "online",
         },
+
+        /**
+         * Represents a prompt configuration object for an authentication URL.
+         * @type {Object}
+         * @property {string} name - The name of the prompt.
+         * @property {string} label - The label for the prompt.
+         * @property {string} type - The type of picker used for the prompt.
+         * @property {string[]} pickerOptions - The options available in the picker.
+         * @property {boolean} required - Indicates if the prompt is required.
+         * @property {string} defaultValue - The default value for the prompt.
+         */
         {
           name: "prompt",
           label: "Auth URL Prompt",
@@ -430,17 +541,43 @@ const functionManifest: () => ModuleManifest = () => ({
           required: true,
           defaultValue: "consent",
         },
+
+        /**
+         * Represents a configuration object for a scope field in a form.
+         * @type {Object}
+         * @property {string} name - The name of the scope field.
+         * @property {string} label - The label to display for the scope field.
+         * @property {string} type - The type of input field, in this case, a ListBox.
+         */
         {
           name: "scope",
           label: "Scopes",
           type: "ListBox",
         },
+
+        /**
+         * Represents a parameter object with information about the state.
+         * @type {Object}
+         * @property {string} name - The name of the parameter ("state").
+         * @property {string} label - The label for the parameter ("State").
+         * @property {string} type - The data type of the parameter ("String").
+         * @property {string} hint - An optional hint for using the parameter.
+         */
         {
           name: "state",
           label: "State",
           type: "String",
           hint: "An optional state parameter to maintain state between the request and the callback",
         },
+
+        /**
+         * Represents a login hint field in a form.
+         * @type {Object}
+         * @property {string} name - The name of the field ("login_hint").
+         * @property {string} label - The label displayed for the field ("Login Hint").
+         * @property {string} type - The type of the field ("String").
+         * @property {string} hint - Additional information or instructions for the field.
+         */
         {
           name: "login_hint",
           label: "Login Hint",
@@ -448,12 +585,57 @@ const functionManifest: () => ModuleManifest = () => ({
           hint: "An optional login hint to pre-fill the email field in the consent screen",
         },
       ],
+
+      /**
+       * The controller responsible for generating a Google authentication URL.
+       * @type {string}
+       */
       controller: "generateGoogleAuthUrl",
     },
+
+    /**
+     * Represents a Google Authentication middleware configuration object.
+     * @type {Object}
+     * @property {string} name - The name of the middleware ("Google Authenticate").
+     * @property {string} type - The type of middleware ("Middleware").
+     * @property {Array} inputs - An array of input objects containing configuration details.
+     * @property {string} inputs[].name - The name of the input.
+     * @property {string} inputs[].label - The label for the input.
+     * @property {string} inputs[].type - The data type of the input.
+     * @property {boolean} inputs[].required - Indicates if the input is required.
+     * @property {string} inputs[].hint - Additional information or instructions for the input.
+     *
+     */
     {
+      /**
+       * Represents the name of the authentication method as "Google Authenticate".
+       */
       name: "Google Authenticate",
+
+      /**
+       * Represents the type of a component as "Middleware".
+       */
       type: "Middleware",
+
+      /**
+       * An array of input objects containing information about the client ID, client secret, and redirect URI.
+       * @type {Array}
+       * @property {string} name - The name of the input field.
+       * @property {string} label - The label displayed for the input field.
+       * @property {string} type - The type of input field (String or Checkbox).
+       * @property {boolean} required - Indicates if the input field is required.
+       * @property {string} hint - Additional information or instructions for the input field.
+       */
       inputs: [
+        /**
+         * Represents a client ID field with its name, label, type, and other properties.
+         * @type {Object}
+         * @property {string} name - The name of the field ("clientId").
+         * @property {string} label - The label of the field ("Client ID").
+         * @property {string} type - The type of the field ("String").
+         * @property {boolean} required - Indicates if the field is required (true).
+         * @property {string} hint - Additional information or hint for the field.
+         */
         {
           name: "clientId",
           label: "Client ID",
@@ -461,12 +643,31 @@ const functionManifest: () => ModuleManifest = () => ({
           required: true,
           hint: 'For environment variables provide EcoFlow prefix. example:"ECOFLOW_USER_"',
         },
+
+        /**
+         * Represents a configuration option for using a client ID from the environment.
+         * @type {Object}
+         * @property {string} name - The name of the configuration option ("clientIdFromEnv").
+         * @property {string} label - The label displayed for the option ("Client ID from Environment").
+         * @property {string} type - The type of input field for the option ("Checkbox").
+         * @property {string} hint - A hint or description for the option ("Use environment variable for client ID").
+         */
         {
           name: "clientIdFromEnv",
           label: "Client ID from Environment",
           type: "Checkbox",
           hint: "Use environment variable for client ID",
         },
+
+        /**
+         * Represents a configuration object for a client secret field.
+         * @type {Object}
+         * @property {string} name - The name of the field ("clientSecret").
+         * @property {string} label - The label to display for the field ("Client Secret").
+         * @property {string} type - The type of the field ("String").
+         * @property {boolean} required - Indicates if the field is required (true).
+         * @property {string} hint - Additional information or instructions for the field.
+         */
         {
           name: "clientSecret",
           label: "Client Secret",
@@ -474,12 +675,31 @@ const functionManifest: () => ModuleManifest = () => ({
           required: true,
           hint: 'For environment variables provide EcoFlow prefix. example:"ECOFLOW_USER_"',
         },
+
+        /**
+         * Represents a configuration option for using the client secret from an environment variable.
+         * @type {Object}
+         * @property {string} name - The name of the configuration option ("clientSecretFromEnv").
+         * @property {string} label - The label displayed for the configuration option ("Client Secret from Environment").
+         * @property {string} type - The type of input field for the configuration option ("Checkbox").
+         * @property {string} hint - A hint or description for the configuration option ("Use environment variable for client secret").
+         */
         {
           name: "clientSecretFromEnv",
           label: "Client Secret from Environment",
           type: "Checkbox",
           hint: "Use environment variable for client secret",
         },
+
+        /**
+         * Represents a configuration object for a specific field.
+         * @type {Object}
+         * @property {string} name - The name of the field.
+         * @property {string} label - The label to display for the field.
+         * @property {string} type - The type of the field.
+         * @property {boolean} required - Indicates if the field is required.
+         * @property {string} hint - Additional information or hint for the field.
+         */
         {
           name: "redirectUri",
           label: "Redirect URI",
@@ -487,6 +707,15 @@ const functionManifest: () => ModuleManifest = () => ({
           required: true,
           hint: 'For environment variables provide EcoFlow prefix. example:"ECOFLOW_USER_"',
         },
+
+        /**
+         * Represents a configuration object for a checkbox input field with the option to use an environment variable for the redirect URI.
+         * @type {Object}
+         * @property {string} name - The name of the field ("redirectUriFromEnv").
+         * @property {string} label - The label displayed for the field ("Redirect URI from Environment").
+         * @property {string} type - The type of input field ("Checkbox").
+         * @property {string} hint - Additional hint text for the field ("Use environment variable for redirect URI").
+         */
         {
           name: "redirectUriFromEnv",
           label: "Redirect URI from Environment",
@@ -494,6 +723,11 @@ const functionManifest: () => ModuleManifest = () => ({
           hint: "Use environment variable for redirect URI",
         },
       ],
+
+      /**
+       * Represents a controller for authenticating with Google OAuth.
+       * @type {string}
+       */
       controller: "googleOAuthAuthenticate",
     },
   ],

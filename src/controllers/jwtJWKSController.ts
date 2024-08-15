@@ -6,10 +6,10 @@ import { pem2jwk } from "pem-jwk";
  * Controller function to handle JWT JWKS requests.
  * @async
  * @function jwtJWKSController
- * @param {EcoContext} this - The context object containing ecoFlow, payload, inputs, and next.
+ * @param {EcoContext} ctx - The context object containing ecoFlow, payload, inputs, and next.
  * @returns {Promise<void>} - A promise that resolves when the function completes.
  */
-async function jwtJWKSController(this: EcoContext) {
+async function jwtJWKSController(ctx: EcoContext) {
   const { _, log } = ecoFlow;
 
   /**
@@ -17,7 +17,7 @@ async function jwtJWKSController(this: EcoContext) {
    * the payload variable.
    * @returns None
    */
-  const { payload, inputs, next } = this;
+  const { payload, inputs, next } = ctx;
 
   /**
    * Checks if the inputs variable is undefined and returns early if true.
@@ -66,7 +66,7 @@ async function jwtJWKSController(this: EcoContext) {
      */
     if (!(await fse.exists(secretPath))) {
       payload[responseKey] = "key not found";
-      this.status = 404;
+      ctx.status = 404;
       return;
     }
 
@@ -104,7 +104,7 @@ async function jwtJWKSController(this: EcoContext) {
      */
     log.error(error);
     payload[responseKey] = "error occurred";
-    this.status = 500;
+    ctx.status = 500;
     return;
   }
 }
