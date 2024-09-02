@@ -14,23 +14,27 @@
     "EcoFlowModule"
   ],
   "ecoModule": {
+    "ApiCredentialsController": "./dist/controllers/ApiCredentialsController.js",
     "signJWTController": "./dist/controllers/signJWTController.js",
     "jwtJWKSController": "./dist/controllers/jwtJWKSController.js",
     "authenticateTokenController": "./dist/controllers/authenticateTokenController.js",
     "generateGoogleAuthUrl": "./dist/controllers/generateGoogleAuthUrl.js",
+    "getTokenFromCode": "./dist/controllers/getTokenFromCode.js",
+    "getUserDetails": "./dist/controllers/getUserDetails.js",
     "googleOAuthAuthenticate": "./dist/controllers/googleOAuthAuthenticate.js"
   },
   "author": "EcoFlowJS",
   "license": "MIT",
   "description": "Authentication package for EcoFlowJS",
   "devDependencies": {
-    "@ecoflow/types": "^0.0.26",
+    "@ecoflow/types": "^0.0.28",
     "@types/fs-extra": "^11.0.4",
     "@types/jsonwebtoken": "^9.0.6",
     "@types/pem-jwk": "^2.0.2",
     "typescript": "^5.5.4"
   },
   "dependencies": {
+    "axios": "^1.7.7",
     "fs-extra": "^11.2.0",
     "googleapis": "^140.0.1",
     "jsonwebtoken": "^9.0.2",
